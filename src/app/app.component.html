@@ -3,5 +3,7 @@
 
 <main>
   <app-side-menu></app-side-menu>
-  <div class="containerright"></div>
+  <div  class="container-cards">
+    <app-card *ngFor="let card of cards"></app-card>
+  </div>
 </main>
