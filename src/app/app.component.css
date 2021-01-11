@@ -1,0 +1,13 @@
+main{
+  border: 1px solid red;
+  height: 100%;
+  display: flex;
+  padding-top: 7vh;
+  width: 100%;
+  justify-content: space-between;
+}
+
+main > *{
+  border: 1px solid red;
+}
+

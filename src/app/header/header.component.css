@@ -1,0 +1,92 @@
+
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+header div.courses-add{
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+header div.courses-add h1{
+  font-weight: bolder;
+  font-size: 3rem;
+}
+
+header div.courses-add button{
+  border-radius: 50%;
+  background: #076edb;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  transform: translateY(2px);
+}
+
+
+header nav ul {
+  display: flex;
+  column-gap: 40px;
+}
+
+header nav ul li{
+  border-radius: 50px;
+  padding: 5px 10px;
+  display: flex;
+  text-transform: uppercase;
+  align-items: center;
+  column-gap: 5px;
+}
+
+header nav ul li:first-child{
+  background: #fff;
+  border-radius: 50px;
+  padding: 7px 15px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
+}
+
+header nav ul span:first-child{
+  color: #5e5e5f;
+  font-size: .8rem;
+  font-weight: 700;
+}
+header nav ul span:last-child{
+  color: #b5cfca;
+  font-size: .7rem;
+  transform: translateY(-1px);
+}
+
+header nav ul li:nth-child(n+2) span:first-child{
+  color: #a5aaa9;
+}
+
+
+header div.header-right-content{
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+
+header div.header-right-content span{
+  padding: 10px;
+  min-width: 40px;
+  min-height: 40px;
+  display: grid;
+  place-content: center;
+  color: #a5aaa9;
+  border-radius: 50%;
+  background: #fff;
+}
+
+header div.header-right-content img{
+  max-width: 50px;
+  width: 100%;
+  border-radius: 50%;
+}
