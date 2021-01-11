@@ -2,20 +2,20 @@ h4{
   color: #9ca0a5;
   font-weight: 400;
   margin-bottom: 3vh;
-}
-
-nav{
-  border: 1px solid red;
+  padding: 0 15px;
 }
 
 li{
   color: #9ca0a5;
   font-weight: 500;
   margin: 2vh 0;
-  padding: 10px;
+  padding: 10px 15px;
+  max-width: 45%;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 li:first-child{
   background: #fff;
-  box-shadow: 0 10px 10px rgba(0, 0, 0, .1);
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, .05);
 }
