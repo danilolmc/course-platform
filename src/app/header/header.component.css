@@ -9,7 +9,6 @@ header{
   height: 20vh;
   width: 100%;
   background: linear-gradient(180deg, var(--litgher-gray) 60% , transparent);
-  /* border: 1px solid red; */
   z-index: 10;
 }
 
@@ -33,6 +32,7 @@ header div.courses-add button{
   height: 40px;
   font-size: 1.5rem;
   transform: translateY(2px);
+  cursor: pointer;
 }
 
 

@@ -5,7 +5,7 @@ import { Directive, Renderer2, ElementRef, HostListener, Input, OnChanges, OnIni
 })
 export class ShadowOnHoverAndCheckDirective implements OnInit{
 
-  @Input() shadowByChecked: string = '';
+  @Input() shadowByChecked = false;
 
   constructor(private render: Renderer2, private elementRef: ElementRef<any>) {
   }

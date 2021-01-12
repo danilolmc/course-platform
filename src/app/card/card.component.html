@@ -1,8 +1,13 @@
-<div class="card" appShadowOnHoverAndCheck [shadowByChecked]="cardSelected" #card>
+<div
+  class="card"
+  appShadowOnHoverAndCheck
+  [shadowByChecked]="cardSelected"
+  #card
+>
   <header>
     <span class="checkbox-container">
-      <input type="checkbox" (click)="selectCard()">
-      <fa-icon  class="checkIcon" [icon]="checkSquare"></fa-icon>
+      <input type="checkbox" (click)="selectCard()" />
+      <fa-icon class="checkIcon" [icon]="checkSquare"></fa-icon>
     </span>
 
     <span>
@@ -11,8 +16,12 @@
   </header>
 
   <div class="card-content">
-    <span>Design</span>
-    <h4>Illustrator CC 2019 MasterClass</h4>
+    <app-card-category
+      #category
+      [classCategory]="course!.category.replace(' ','-').toLocaleLowerCase()"
+      [courseCategory]="course!.category"
+    ></app-card-category>
+    <h4>{{ course?.title }}</h4>
   </div>
 
   <footer>
@@ -20,8 +29,7 @@
       <span>
         <fa-icon [icon]="teamIcon"></fa-icon>
       </span>
-      <span>3</span>
+      <span>{{ course?.students }}</span>
     </div>
   </footer>
-
 </div>

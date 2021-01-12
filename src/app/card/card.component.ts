@@ -1,5 +1,6 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild, OnChanges, Output } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild, OnChanges, Output, Input } from '@angular/core';
 import { faEllipsisH, faUserFriends, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { Course } from '../course';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +14,8 @@ export class CardComponent {
   checkSquare = faCheckSquare;
 
   cardSelected = false;
+
+  @Input() course ?: Course;
 
   @ViewChild('card') card !: ElementRef<HTMLDivElement>;
 

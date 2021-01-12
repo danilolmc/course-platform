@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CoursesService } from './services/courses.service';
+import { Course } from './course';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
-  cards = [1,2,3,4,5,6,7,8,9,0];
+  courses: Course[] = [];
+
+  constructor(private courseService: CoursesService) { }
+
+  ngOnInit() {
+
+    this.courseService
+      .getCourses()
+      .subscribe(
+        (courses: Course[]) => {
+          this.courses = courses
+          console.log(courses)
+        },
+        err => console.log("Error"))
+  }
+
 }
