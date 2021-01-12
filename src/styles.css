@@ -1,9 +1,18 @@
 :root{
   --primary:#076edb;
   --white:#fff;
-  --letgher-gray:#f7f7f8;
+  --litgher-gray:#f7f7f8;
 }
 
+
+::-webkit-scrollbar{
+  width: 5px;
+  background: #eee;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #aaa;
+}
 
 *{
   box-sizing: border-box;
@@ -15,8 +24,7 @@
 }
 
 body{
-  padding: 8vh 5vw;
-  background: var(--letgher-gray);
+  background: var(--litgher-gray);
   height: 100vh;
 }
 

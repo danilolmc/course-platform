@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { CardComponent } from './card/card.component';
+import { ShadowOnHoverAndCheckModule } from './shared/directives/shadow-on-hover-and-check.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CardComponent } from './card/card.component';
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ShadowOnHoverAndCheckModule
   ],
   providers: [],
   bootstrap: [AppComponent]

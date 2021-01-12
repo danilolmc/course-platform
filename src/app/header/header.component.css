@@ -3,7 +3,14 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 100px;
+  padding: 10vh 5vw 8vh 5vw;
+  position: fixed;
+  top:0;
+  height: 20vh;
+  width: 100%;
+  background: linear-gradient(180deg, var(--litgher-gray) 60% , transparent);
+  /* border: 1px solid red; */
+  z-index: 10;
 }
 
 

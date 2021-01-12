@@ -1,7 +1,8 @@
-<div class="card">
+<div class="card" appShadowOnHoverAndCheck [shadowByChecked]="cardSelected" #card>
   <header>
-    <span>
-      <input type="checkbox">
+    <span class="checkbox-container">
+      <input type="checkbox" (click)="selectCard()">
+      <fa-icon  class="checkIcon" [icon]="checkSquare"></fa-icon>
     </span>
 
     <span>
@@ -16,7 +17,9 @@
 
   <footer>
     <div class="footer-card-content">
-      <fa-icon [icon]="teamIcon"></fa-icon>
+      <span>
+        <fa-icon [icon]="teamIcon"></fa-icon>
+      </span>
       <span>3</span>
     </div>
   </footer>
