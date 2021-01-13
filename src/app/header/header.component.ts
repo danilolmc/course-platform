@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Renderer2, ViewChildren } from '@angular/core';
 import { faPlusSquare, faBell } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -14,9 +14,18 @@ export class HeaderComponent implements OnInit {
   bellIcon = faBell;
 
 
-  constructor() { }
+  @ViewChild("focusedItem") spanFocus !: ElementRef<HTMLSpanElement>
+  @ViewChild("li") ul !: ElementRef<HTMLUListElement>;
+
+  constructor(private render: Renderer2, private elementRef : ElementRef<HTMLLIElement>) { }
 
   ngOnInit(): void {
+  }
+
+  focus(tranformX: number, padddingX : number, element?: HTMLSpanElement) {
+    this.render.setStyle(this.spanFocus.nativeElement, 'transform', `translateX(${tranformX}px)`);
+    this.render.setStyle(this.spanFocus.nativeElement, 'padding', `16px ${padddingX}px`);
+
   }
 
 }

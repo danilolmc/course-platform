@@ -39,9 +39,11 @@ header div.courses-add button{
 header nav ul {
   display: flex;
   column-gap: 40px;
+  align-items: center;
+  position: relative;
 }
 
-header nav ul li{
+header nav ul li label{
   border-radius: 50px;
   padding: 5px 10px;
   display: flex;
@@ -50,31 +52,41 @@ header nav ul li{
   column-gap: 5px;
 }
 
-header nav ul li:first-child{
+.elementFocus{
+  position: absolute;
   background: #fff;
   border-radius: 50px;
-  padding: 7px 15px;
+  padding: 16px 45px;
   display: flex;
   align-items: center;
   column-gap: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, .05);
+  transition: .5s ease;
+  z-index: -1;
+  transform: translateX(-5px);
 }
 
-header nav ul span:first-child{
-  color: #5e5e5f;
+input[type="radio"]{
+  display: none;
+}
+
+header nav ul label{
+  display: flex;
+  align-items: center;
+  color: #b9b9b9;
   font-size: .8rem;
   font-weight: 700;
 }
+
 header nav ul span:last-child{
-  color: #b5cfca;
+  color: #cccccc;
   font-size: .7rem;
   transform: translateY(-1px);
 }
 
-header nav ul li:nth-child(n+2) span:first-child{
-  color: #a5aaa9;
+label span{
+  transition: .5s ease;
 }
-
 
 header div.header-right-content{
   display: flex;
@@ -97,4 +109,8 @@ header div.header-right-content img{
   max-width: 50px;
   width: 100%;
   border-radius: 50%;
+}
+
+input[type="radio"]:checked + span{
+  color: #868686;
 }

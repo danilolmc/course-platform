@@ -7,19 +7,30 @@
   </div>
 
   <nav>
-    <ul>
-      <li>
-        <span>Active</span>
-        <span>24</span>
+    <ul >
+      <li (click)="focus(-5,45)">
+        <label for="active">
+          <input type="radio" name="menu" id="active" checked>
+          <span>Active</span>
+          <span>24</span>
+        </label>
       </li>
-      <li>
-        <span>Drafts</span>
-        <span>4</span>
+      <li (click)="focus(120,45)">
+        <label for="drafts">
+          <input type="radio" name="menu" id="drafts">
+          <span>Drafts</span>
+          <span>4</span>
+        </label>
       </li>
-      <li>
-        <span>Archived</span>
-        <span>1</span>
+      <li (click)="focus(243,52)">
+        <label for="archived">
+          <input type="radio" name="menu" id="archived">
+          <span>Archived</span>
+          <span>1</span>
+        </label>
       </li>
+
+      <div class="elementFocus" #focusedItem></div>
     </ul>
   </nav>
 

@@ -23,6 +23,14 @@
   font-family: sans-serif;
 }
 
+button span{
+  cursor: pointer;
+}
+
+p,span{
+  cursor: context-menu;
+}
+
 body{
   background: var(--litgher-gray);
   height: 100vh;

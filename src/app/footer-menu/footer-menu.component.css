@@ -40,7 +40,7 @@ footer{
 
 
 footer div.left-div-footer{
-  color: rgba(255, 255, 255, 0.589);
+  color: rgba(255, 255, 255, 0.87);
   display: flex;
   align-items: center;
   column-gap: 50px;
@@ -69,7 +69,7 @@ label.custom-checkbox{
   place-content: center;
   width: 20px;
   height: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.445);
+  border: 1px solid rgba(255, 255, 255, 0.747);
   border-radius: 2px;
   position: relative;
 
@@ -81,6 +81,7 @@ label.custom-checkbox::after{
   content: "\2713";
   width: 20px;
   height: 20px;
+  padding-bottom: 1px;
   border-radius: 2px;
   background: #fff;
   color: #0664c8;
@@ -88,6 +89,7 @@ label.custom-checkbox::after{
   pointer-events: none;
   opacity: 0;
   transition: .5s ease;
+  text-shadow: 0 0 1px #0664c8;
 }
 
 input[type="checkbox"]{
@@ -107,10 +109,10 @@ div.center{
 }
 
 footer button{
-  border: 1px solid rgba(255, 255, 255, 0.445);
+  border: 1px solid rgba(255, 255, 255, 0.397);
   background: none;
   cursor: pointer;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.87);
   padding: 10px 23px;
   border-radius: 40px;
   transition: .5s ease;
@@ -127,7 +129,7 @@ footer button span:first-child{
 
 
 footer div.righ-div-footer{
-  color: rgba(255, 255, 255, 0.589);
+  color: rgba(255, 255, 255, 0.616);
   font-weight: 300;
   font-size: .9rem;
 }
