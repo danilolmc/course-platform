@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Course } from 'src/app/course';
-import { Categories } from '../categories';
 
 @Component({
   selector: 'app-card-category',

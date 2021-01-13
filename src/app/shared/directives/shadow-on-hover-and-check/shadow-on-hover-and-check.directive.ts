@@ -1,18 +1,17 @@
-import { Directive, Renderer2, ElementRef, HostListener, Input, OnChanges, OnInit } from '@angular/core';
+import { Directive, Renderer2, ElementRef, HostListener, Input, AfterViewInit } from '@angular/core';
 
 @Directive({
   selector: '[appShadowOnHoverAndCheck]'
 })
-export class ShadowOnHoverAndCheckDirective implements OnInit{
+export class ShadowOnHoverAndCheckDirective implements AfterViewInit{
 
   @Input() shadowByChecked = false;
 
   constructor(private render: Renderer2, private elementRef: ElementRef<any>) {
   }
 
-  ngOnInit(){
-
-    console.log(this.shadowByChecked)
+  ngAfterViewInit(){
+    this.shadowByChecked = false;
   }
 
   @HostListener('mouseover')
@@ -28,6 +27,5 @@ export class ShadowOnHoverAndCheckDirective implements OnInit{
 
       this.render.removeClass(this.elementRef.nativeElement,'hoverCard');
     }
-
   }
 }

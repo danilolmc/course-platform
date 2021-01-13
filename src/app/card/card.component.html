@@ -1,12 +1,13 @@
 <div
   class="card"
   appShadowOnHoverAndCheck
+  appHoverCategory
   [shadowByChecked]="cardSelected"
   #card
 >
   <header>
     <span class="checkbox-container">
-      <input type="checkbox" (click)="selectCard()" />
+      <input type="checkbox" (click)="selectCard()" [checked]="cardSelected"/>
       <fa-icon class="checkIcon" [icon]="checkSquare"></fa-icon>
     </span>
 

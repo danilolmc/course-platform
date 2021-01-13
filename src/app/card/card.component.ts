@@ -1,6 +1,8 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild, OnChanges, Output, Input } from '@angular/core';
+import { Component, OnInit, Renderer2, ElementRef, ViewChild, Input } from '@angular/core';
 import { faEllipsisH, faUserFriends, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { Course } from '../course';
+import { CardCategoryComponent } from './card-category/card-category.component';
+import { ToggleFooterService } from '../services/toggle-footer.service';
 
 @Component({
   selector: 'app-card',
@@ -15,11 +17,14 @@ export class CardComponent {
 
   cardSelected = false;
 
-  @Input() course ?: Course;
+  @Input() course !: Course;
 
   @ViewChild('card') card !: ElementRef<HTMLDivElement>;
 
-  constructor(private render: Renderer2) { }
+  @ViewChild('category') categoryElement !: ElementRef<any>;
+
+
+  constructor(private render: Renderer2,private toggleFooterService : ToggleFooterService) { }
 
 
   selectCard(){
@@ -28,14 +33,14 @@ export class CardComponent {
 
     if(this.cardSelected){
 
+      this.toggleFooterService.selectCourse(this.course);
       this.render.addClass(this.card.nativeElement,'hoverCard');
 
     }else{
 
+      this.toggleFooterService.removeSelection(this.course);
       this.render.removeClass(this.card.nativeElement,'hoverCard');
     }
-  }
 
 
-
-}
+  }}

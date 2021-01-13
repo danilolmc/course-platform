@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
       .subscribe(
         (courses: Course[]) => {
           this.courses = courses
-          console.log(courses)
         },
         err => console.log("Error"))
   }

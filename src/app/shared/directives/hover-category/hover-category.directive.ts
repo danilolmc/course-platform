@@ -1,13 +1,26 @@
-import { Directive, Renderer2, ElementRef, Input } from '@angular/core';
+import { Directive, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appHoverCategory]'
 })
-export class HoverCategoryDirective {
+export class HoverCategoryDirective{
 
-  @Input() categoryElement !: ElementRef<any>
+  // @Input() categoryElement!: ElementRef<any>;
 
-  constructor(private redenr: Renderer2, private elementRef : ElementRef) { }
+  constructor(private render: Renderer2, private elementRef : ElementRef) { }
+
+
+  // ngAfterViewInit(){
+  //   this.categoryElement = this.elementRef;
+  // }
+
+  // @HostListener('mouseover')
+  // HoverOn() {
+
+  //   console.log(this.categoryElement)
+  // }
+
+
 
 
 

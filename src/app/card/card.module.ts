@@ -16,7 +16,7 @@ import { HoverCategoryModule } from '../shared/directives/hover-category/hover-c
     CommonModule,
     FontAwesomeModule,
     ShadowOnHoverAndCheckModule,
-    HoverCategoryModule
+    HoverCategoryModule,
   ]
 })
 export class CardModule{}

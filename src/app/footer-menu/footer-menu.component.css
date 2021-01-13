@@ -1,0 +1,139 @@
+footer{
+  width: 100%;
+  background: var(--primary);
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 100px;
+}
+
+.isShown{
+  opacity: 0;
+  animation: animaFadeIn .5s ease forwards;
+  transform: translateY(50px);
+}
+
+@keyframes animaFadeIn{
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.isHidden{
+  opacity: 1;
+  animation: animaFadeOut .5s ease forwards;
+}
+
+
+@keyframes animaFadeOut{
+
+  to{
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+  }
+}
+
+
+footer div.left-div-footer{
+  color: rgba(255, 255, 255, 0.589);
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  font-size: .9rem;
+}
+
+footer div.left-div-footer p{
+  display: flex;
+  align-items: center;
+  column-gap: 3px;
+}
+
+p span:first-child{
+  transition: 1s ease;
+}
+
+div.checkbox{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  column-gap: 10px;
+}
+
+label.custom-checkbox{
+  display: grid;
+  place-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.445);
+  border-radius: 2px;
+  position: relative;
+
+}
+
+label.custom-checkbox::after{
+  display: grid;
+  place-content: center;
+  content: "\2713";
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  background: #fff;
+  color: #0664c8;
+  font-weight: bolder;
+  pointer-events: none;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+input[type="checkbox"]{
+  display: none;
+}
+
+
+input[type="checkbox"]:checked + label.custom-checkbox::after{
+  opacity: 1;
+}
+
+
+div.center{
+
+  display: flex;
+  column-gap: 10px;
+}
+
+footer button{
+  border: 1px solid rgba(255, 255, 255, 0.445);
+  background: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 10px 23px;
+  border-radius: 40px;
+  transition: .5s ease;
+}
+
+footer button:hover{
+  background: #0664c8;
+  border-color: #0664c8;
+}
+
+footer button span:first-child{
+  margin-right: 5px;
+}
+
+
+footer div.righ-div-footer{
+  color: rgba(255, 255, 255, 0.589);
+  font-weight: 300;
+  font-size: .9rem;
+}
+
+footer div.righ-div-footer span{
+  color: #fff;
+  font-weight: 500;
+
+}

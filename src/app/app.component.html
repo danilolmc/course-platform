@@ -3,7 +3,9 @@
 
 <main>
   <app-side-menu></app-side-menu>
-  <div  class="container-cards" *ngIf="courses">
+  <div  class="container-cards">
     <app-card   *ngFor="let course of courses" [course]="course"></app-card>
   </div>
 </main>
+
+<app-footer-menu></app-footer-menu>

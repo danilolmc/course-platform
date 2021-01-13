@@ -3,7 +3,7 @@ main{
   display: flex;
   width: 100%;
   height: auto;
-  padding: 5vh 5vw;
+  padding: 4vh 5vw 10vh 5vw;
   margin-top: 22vh;
   justify-content: space-between;
 }
