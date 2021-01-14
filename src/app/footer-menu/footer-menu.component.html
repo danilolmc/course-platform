@@ -1,4 +1,4 @@
-<footer [className]="footerClass">
+<footer [className]="footerClass |async">
   <div class="left-div-footer">
     <p>
       <span>{{ selectedCount }}</span>
@@ -8,7 +8,7 @@
     <div class="selectCheckboxContainer">
       <div class="checkbox">
         <label for="selectAll">Select All</label>
-        <input type="checkbox" id="selectAll" />
+        <input (change)="selectAllCourses()" type="checkbox" id="selectAll" [checked]="selectAll" />
         <label class="custom-checkbox" for="selectAll"></label>
       </div>
     </div>

@@ -9,19 +9,10 @@ import { Course } from './course';
 })
 export class AppComponent implements OnInit {
 
-  courses: Course[] = [];
-
-  constructor(private courseService: CoursesService) { }
+  constructor() { }
 
   ngOnInit() {
 
-    this.courseService
-      .getCourses()
-      .subscribe(
-        (courses: Course[]) => {
-          this.courses = courses
-        },
-        err => console.log("Error"))
   }
 
 }

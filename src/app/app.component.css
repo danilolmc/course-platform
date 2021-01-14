@@ -14,12 +14,9 @@ main > app-side-menu{
   position: fixed;
 
 }
-main > div.container-cards{
+main app-courses-list{
   width: 80%;
   padding-top: 4.5vh;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 50px;
   transform: translateX(18vw);
 }
 

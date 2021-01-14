@@ -7,7 +7,9 @@ import { Subject } from 'rxjs';
 })
 export class ToggleFooterService{
 
-  private subject = new Subject<Course[]>();
+  subject = new Subject<Course[]>();
+
+  subjectSelectAll = new Subject<boolean>();
 
   selectedItems : Course[] = []
 
@@ -28,4 +30,21 @@ export class ToggleFooterService{
 
   }
 
+  storeAllCourses(courseList : Course[]){
+    this.selectedItems = courseList;
+    this.subject.next(courseList)
+    this.subjectSelectAll.next(true)
+  }
+
+  removeAllCourses(){
+    this.selectedItems = [];
+    this.subject.next(this.selectedItems)
+    this.subjectSelectAll.next(false)
+    console.log(this.selectedItems)
+  }
+
+  isAllSelected(){
+
+    return this.subjectSelectAll.asObservable();
+  }
 }

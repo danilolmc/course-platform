@@ -13,7 +13,6 @@ export class HeaderComponent implements OnInit {
   searchIcon = faSearch;
   bellIcon = faBell;
 
-
   @ViewChild("focusedItem") spanFocus !: ElementRef<HTMLSpanElement>
   @ViewChild("li") ul !: ElementRef<HTMLUListElement>;
 
@@ -22,10 +21,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  focus(tranformX: number, padddingX : number, element?: HTMLSpanElement) {
+  focus(tranformX: number, padddingX : number,) {
     this.render.setStyle(this.spanFocus.nativeElement, 'transform', `translateX(${tranformX}px)`);
     this.render.setStyle(this.spanFocus.nativeElement, 'padding', `16px ${padddingX}px`);
-
   }
 
 }

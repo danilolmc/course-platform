@@ -7,12 +7,14 @@ footer{
   justify-content: space-between;
   align-items: center;
   padding: 10px 100px;
+  opacity: 0;
+
 }
 
 .isShown{
   opacity: 0;
   animation: animaFadeIn .5s ease forwards;
-  transform: translateY(50px);
+  transform: translateY(60px);
 }
 
 @keyframes animaFadeIn{
@@ -33,7 +35,7 @@ footer{
 
   to{
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(60px);
     pointer-events: none;
   }
 }
@@ -43,7 +45,7 @@ footer div.left-div-footer{
   color: rgba(255, 255, 255, 0.87);
   display: flex;
   align-items: center;
-  column-gap: 50px;
+  column-gap: 60px;
   font-size: .9rem;
 }
 

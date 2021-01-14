@@ -1,15 +1,15 @@
-import { Component, OnInit, Renderer2, ElementRef, ViewChild, Input } from '@angular/core';
+import { Component, Renderer2, ElementRef, ViewChild, Input, OnInit } from '@angular/core';
 import { faEllipsisH, faUserFriends, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { Course } from '../course';
-import { CardCategoryComponent } from './card-category/card-category.component';
 import { ToggleFooterService } from '../services/toggle-footer.service';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
+export class CardComponent implements OnInit{
 
   ellipsisIcon = faEllipsisH;
   teamIcon = faUserFriends;
@@ -23,24 +23,40 @@ export class CardComponent {
 
   @ViewChild('category') categoryElement !: ElementRef<any>;
 
+  constructor(private render: Renderer2, private toggleFooterService: ToggleFooterService) { }
 
-  constructor(private render: Renderer2,private toggleFooterService : ToggleFooterService) { }
+  ngOnInit(){
+    this.toggleFooterService
+        .isAllSelected()
+        .subscribe(
+          (isSelect) => {
+            this.cardSelected = isSelect
+            this.removeSelectedEffect()
+          }
+        )
+  }
 
+  selectCard() {
 
-  selectCard(){
+    this.cardSelected = !this.cardSelected
 
-    this.cardSelected = !this.cardSelected;
-
-    if(this.cardSelected){
+    if (this.cardSelected) {
 
       this.toggleFooterService.selectCourse(this.course);
-      this.render.addClass(this.card.nativeElement,'hoverCard');
+      this.addSelectedEffect();
 
-    }else{
+    } else {
 
       this.toggleFooterService.removeSelection(this.course);
-      this.render.removeClass(this.card.nativeElement,'hoverCard');
+      this.removeSelectedEffect()
     }
+  }
 
+  addSelectedEffect() {
+    this.render.addClass(this.card.nativeElement, 'hoverCard');
+  }
 
-  }}
+  removeSelectedEffect() {
+    this.render.removeClass(this.card.nativeElement, 'hoverCard');
+  }
+}

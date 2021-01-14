@@ -2,12 +2,16 @@
   class="card"
   appShadowOnHoverAndCheck
   appHoverCategory
-  [shadowByChecked]="cardSelected"
+  [shadowByChecked]="cardSelected || false"
   #card
 >
   <header>
     <span class="checkbox-container">
-      <input type="checkbox" (click)="selectCard()" [checked]="cardSelected"/>
+      <input
+        type="checkbox"
+        (change)="selectCard()"
+        [checked]="cardSelected"
+      />
       <fa-icon class="checkIcon" [icon]="checkSquare"></fa-icon>
     </span>
 
@@ -19,7 +23,7 @@
   <div class="card-content">
     <app-card-category
       #category
-      [classCategory]="course!.category.replace(' ','-').toLocaleLowerCase()"
+      [classCategory]="course!.category.replace(' ', '-').toLocaleLowerCase()"
       [courseCategory]="course!.category"
     ></app-card-category>
     <h4>{{ course?.title }}</h4>

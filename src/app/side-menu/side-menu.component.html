@@ -1,12 +1,12 @@
-<nav>
+<nav >
   <h4>Topics</h4>
-  <ul>
-    <li>All</li>
-    <li>Client Work</li>
-    <li>Design</li>
-    <li>Development</li>
-    <li>Languages</li>
-    <li>Management</li>
-    <li>Tools</li>
+  <ul @sideMenuList>
+    <li *ngFor="let menu_item of menuItems" (click)="selectItem(menu_item.selectorPosition, inputRadio)">
+        <input type="radio" name="select" #inputRadio>
+        <span #span>
+          {{menu_item.item}}
+        </span>
+    </li>
+    <span #selectorMenu id="selectorMenu"></span>
   </ul>
 </nav>
