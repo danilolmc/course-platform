@@ -20,12 +20,22 @@ export class FooterMenuComponent implements OnInit{
 
 
   constructor(private render: Renderer2, private elementRef: ElementRef<any>, private toogleFooterService: ToggleFooterService, private coursesService: CoursesService) {
-    this.getSelectedCount()
-    this.toggleFooter();
   }
 
   ngOnInit() {
+    this.getSelectedCount()
+    this.toggleFooter();
+    this.isSelectedAll()
     this.render.setStyle(this.elementRef.nativeElement, 'display', 'none');
+  }
+
+  isSelectedAll(){
+    this.toogleFooterService
+    .isAllSelected()
+    .subscribe(isAllS => {
+      this.selectAll = isAllS
+    })
+
   }
 
 

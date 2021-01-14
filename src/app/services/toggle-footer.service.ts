@@ -34,7 +34,7 @@ export class ToggleFooterService{
     return this.selectionCount.asObservable();
   }
 
-  removeSelection(course : Course){
+  removeSelection(){
 
     this.selectionCount.next(this.selectionCount.value - 1)
 
@@ -51,7 +51,6 @@ export class ToggleFooterService{
     this.selectedItems = [];
     this.subject.next(this.selectedItems)
     this.subjectSelectAll.next(false)
-    console.log(this.selectedItems)
     this.selectionCount.next(0)
   }
 

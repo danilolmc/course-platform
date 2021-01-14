@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
+import { ToggleFooterService } from './services/toggle-footer.service';
 import { CoursesService } from './services/courses.service';
-import { Course } from './course';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,23 @@ import { Course } from './course';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor(private courseService: CoursesService, private toggleFooterService : ToggleFooterService ) { }
 
   ngOnInit() {
 
+  }
+
+  @HostListener('window:keyup',['$event'])
+  KeyEvent(event : KeyboardEvent){
+
+    const teclaESCCode = 27
+
+    if(event.keyCode == teclaESCCode){
+
+        if(this.toggleFooterService.isAllSelected()){
+          this.toggleFooterService.removeAllCourses()
+        }
+    }
   }
 
 }

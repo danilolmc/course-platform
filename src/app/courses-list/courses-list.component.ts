@@ -13,9 +13,9 @@ import { trigger, transition, query, stagger, style, animate } from '@angular/an
       transition("* => *", [
 
         query(':enter', [
-          style({ opacity: 0 , transform: 'translateY(35px)'}),
+          style({ opacity: 0, transform: 'translateY(35px)' }),
           stagger(80, [
-            animate('1.2s .5s ease', style({ opacity: 1,transform: 'translateY(0px)' }))
+            animate('1.2s .5s ease', style({ opacity: 1, transform: 'translateY(0px)' }))
           ])
         ])
       ])

@@ -9,7 +9,7 @@ import { of } from 'rxjs';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit{
+export class CardComponent implements OnInit {
 
   ellipsisIcon = faEllipsisH;
   teamIcon = faUserFriends;
@@ -25,21 +25,26 @@ export class CardComponent implements OnInit{
 
   constructor(private render: Renderer2, private toggleFooterService: ToggleFooterService) { }
 
-  ngOnInit(){
-    this.toggleFooterService
-        .isAllSelected()
-        .subscribe(
-          (isSelect) => {
-            this.cardSelected = isSelect
-            if(isSelect){
-              this.addSelectedEffect()
-            }
-            else{
+  ngOnInit() {
 
-              this.removeSelectedEffect()
-            }
+    this.addEffectIfisAllSelected()
+  }
+
+  addEffectIfisAllSelected() {
+    this.toggleFooterService
+      .isAllSelected()
+      .subscribe(
+        (isAllSelect) => {
+          this.cardSelected = isAllSelect
+          if (isAllSelect) {
+            this.addSelectedEffect()
           }
-        )
+          else {
+
+            this.removeSelectedEffect()
+          }
+        }
+      )
   }
 
   selectCard() {
@@ -53,7 +58,7 @@ export class CardComponent implements OnInit{
 
     } else {
 
-      this.toggleFooterService.removeSelection(this.course);
+      this.toggleFooterService.removeSelection();
       this.removeSelectedEffect()
     }
   }
