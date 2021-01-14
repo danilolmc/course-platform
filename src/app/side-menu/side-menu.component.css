@@ -8,7 +8,6 @@ h4{
   animation-delay: .9s;
 }
 
-
 @keyframes animaTopic{
   to{
     opacity: 1;
