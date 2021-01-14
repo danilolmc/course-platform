@@ -2,8 +2,10 @@
   class="card"
   appShadowOnHoverAndCheck
   appHoverCategory
+  appJustOneMenuOpen
   [shadowByChecked]="cardSelected || false"
   [categoryComponent] = "category"
+
   #card
 >
   <header>
@@ -16,10 +18,11 @@
       <fa-icon class="checkIcon" [icon]="checkSquare"></fa-icon>
     </span>
 
-    <span>
+    <span (click)="toogleCardMenu()">
       <fa-icon [icon]="ellipsisIcon"></fa-icon>
     </span>
   </header>
+  <app-menu-card #menucard [@showHideMenuState]="cardMenuState"></app-menu-card>
 
   <div class="card-content">
     <app-card-category

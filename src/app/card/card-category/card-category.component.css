@@ -51,3 +51,13 @@ span{
   background: #3663ff;
 }
 
+.financial{
+  color: #b0835e;
+  background: #fff2e8;
+}
+
+.financial-focused{
+  color: #fff;
+  background: #ff831f;
+}
+

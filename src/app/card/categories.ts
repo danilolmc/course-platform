@@ -3,4 +3,5 @@ export enum Categories{
   Design = "design",
   Languages = "languages",
   ClientWork = "client-work",
+  Financial = "financial",
 }

@@ -23,8 +23,8 @@ export class CoursesService {
     },
     {
       id:2,
-      title: 'Illustrator CC 2019 MasterClass',
-      category: "Design",
+      title: 'Basic of Financial Accounting',
+      category: "Financial",
       students: 54
     },
     {

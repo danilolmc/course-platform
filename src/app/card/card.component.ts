@@ -2,13 +2,32 @@ import { Component, Renderer2, ElementRef, ViewChild, Input, OnInit } from '@ang
 import { faEllipsisH, faUserFriends, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
 import { Course } from '../course';
 import { ToggleFooterService } from '../services/toggle-footer.service';
-import { of } from 'rxjs';
 import { CardCategoryComponent } from './card-category/card-category.component';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.css'],
+  animations: [
+    trigger('showHideMenuState', [
+      state('isHidden', style({
+        opacity: 0,
+        transform: 'translate(3vw,3vh)',
+        pointerEvents: 'none'
+      })),
+
+      state('isShown', style({
+        opacity: 1,
+        transform: 'translate(3vw,2vh)',
+        pointerEvents: 'all'
+      })),
+
+      transition('isHidden=>isShown', animate('.5s ease')),
+      transition('isShown=>isHidden', animate('.5s ease'))
+    ])
+  ]
+
 })
 export class CardComponent implements OnInit {
 
@@ -17,6 +36,8 @@ export class CardComponent implements OnInit {
   checkSquare = faCheckSquare;
 
   cardSelected = false;
+
+  cardMenuState = 'isHidden';
 
   @Input() course !: Course;
 
@@ -32,6 +53,11 @@ export class CardComponent implements OnInit {
 
   }
 
+  toogleCardMenu() {
+
+    this.cardMenuState = this.cardMenuState == 'isHidden' ? 'isShown' : 'isHidden';
+  }
+
   addEffectIfisAllSelected() {
     this.toggleFooterService
       .isAllSelected()
@@ -39,7 +65,7 @@ export class CardComponent implements OnInit {
         (isAllSelect) => {
           this.cardSelected = isAllSelect
           if (isAllSelect) {
-            this.addSelectedEffect()
+            this.addSelectedCardEffect()
             this.categoryElement.addCategoryEffect()
           }
           else {
@@ -58,7 +84,7 @@ export class CardComponent implements OnInit {
     if (this.cardSelected) {
 
       this.toggleFooterService.selectCourse(this.course);
-      this.addSelectedEffect();
+      this.addSelectedCardEffect();
       this.categoryElement.addCategoryEffect()
 
     } else {
@@ -69,7 +95,7 @@ export class CardComponent implements OnInit {
     }
   }
 
-  addSelectedEffect() {
+  addSelectedCardEffect() {
     this.render.addClass(this.card.nativeElement, 'hoverCard');
   }
 
