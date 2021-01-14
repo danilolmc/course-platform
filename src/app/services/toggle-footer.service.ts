@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../course';
-import { Subject } from 'rxjs';
+import { Subject, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,20 +13,30 @@ export class ToggleFooterService{
 
   selectedItems : Course[] = []
 
+  selectionCount = new BehaviorSubject<number>(0);
+
+
   selectCourse(course : Course){
-    this.selectedItems.push(course)
-    this.subject.next(this.selectedItems)
+    let isAlreadySelected = this.selectedItems.filter(crs => crs.id == course.id).length > 0;
+
+    if(!isAlreadySelected){
+
+      this.selectedItems.push(course);
+      this.subject.next(this.selectedItems)
+    }
+
+    this.selectionCount.next(this.selectionCount.value + 1)
+
+
   }
 
   getSelectedCount(){
-    return this.subject.asObservable();
+    return this.selectionCount.asObservable();
   }
 
   removeSelection(course : Course){
 
-    let indexUnchecked = this.selectedItems.findIndex(crs => crs.id == course.id);
-    this.selectedItems.splice(indexUnchecked,1);
-    this.subject.next(this.selectedItems);
+    this.selectionCount.next(this.selectionCount.value - 1)
 
   }
 
@@ -34,6 +44,7 @@ export class ToggleFooterService{
     this.selectedItems = courseList;
     this.subject.next(courseList)
     this.subjectSelectAll.next(true)
+    this.selectionCount.next(courseList.length)
   }
 
   removeAllCourses(){
@@ -41,6 +52,7 @@ export class ToggleFooterService{
     this.subject.next(this.selectedItems)
     this.subjectSelectAll.next(false)
     console.log(this.selectedItems)
+    this.selectionCount.next(0)
   }
 
   isAllSelected(){

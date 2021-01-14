@@ -2,8 +2,7 @@ import { Component, Renderer2, ElementRef, OnInit, OnChanges } from '@angular/co
 import { faBullhorn, faFolderOpen } from '@fortawesome/free-solid-svg-icons';
 import { ToggleFooterService } from '../services/toggle-footer.service';
 import { Course } from '../course';
-import { of, observable, Observable } from 'rxjs';
-import { startWith } from 'rxjs/operators';
+import { of } from 'rxjs';
 import { CoursesService } from '../services/courses.service';
 
 @Component({
@@ -35,9 +34,9 @@ export class FooterMenuComponent implements OnInit{
     this.toogleFooterService
       .getSelectedCount()
       .subscribe(
-        (courses: Course[]) => {
+        (count: number) => {
 
-          if (courses.length > 0) {
+          if (count > 0) {
 
             this.render.setStyle(this.elementRef.nativeElement, 'display', 'flex');
             this.footerClass = of("isShown");
@@ -55,8 +54,8 @@ export class FooterMenuComponent implements OnInit{
     this.toogleFooterService
       .getSelectedCount()
       .subscribe(
-        courses => {
-          this.selectedCount = courses.length
+        count => {
+          this.selectedCount = count
         }
       )
   }

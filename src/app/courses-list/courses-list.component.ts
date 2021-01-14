@@ -37,7 +37,7 @@ export class CoursesListComponent implements OnInit {
         (courses: Course[]) => {
           this.courses = courses
         },
-        err => console.log("Error"))
+        () => console.log("Error"))
   }
 
 }

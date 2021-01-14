@@ -31,7 +31,13 @@ export class CardComponent implements OnInit{
         .subscribe(
           (isSelect) => {
             this.cardSelected = isSelect
-            this.removeSelectedEffect()
+            if(isSelect){
+              this.addSelectedEffect()
+            }
+            else{
+
+              this.removeSelectedEffect()
+            }
           }
         )
   }
