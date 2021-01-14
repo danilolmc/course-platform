@@ -25,7 +25,7 @@ header div.courses-add h1{
   transform: translateY(10px);
   opacity: 0;
   animation: animaHeaderh1 1.5s ease forwards;
-  animation-delay: .3s;
+  animation-delay: .8s;
 }
 
 header div.courses-add button{
@@ -66,7 +66,7 @@ header nav ul {
   opacity: 0;
   transform: translateY(10px);
   animation: animaHeaderItems 1s ease forwards;
-  animation-delay: .6s;
+  animation-delay: 1.2s;
 }
 
 @keyframes animaHeaderItems{
@@ -145,11 +145,11 @@ header div.header-right-content span{
 
 
 header div.header-right-content span:nth-of-type(1){
-  animation-delay: .5s;
+  animation-delay: 1.3s;
 }
 
 header div.header-right-content span:nth-of-type(2){
-  animation-delay: .8s;
+  animation-delay: 1.5s;
 }
 
 header div.header-right-content img{
@@ -159,7 +159,7 @@ header div.header-right-content img{
   opacity: 0;
   transform: translateY(10px) scale(.8);
   animation: animateProfileImage 1s ease forwards;
-  animation-delay: .9s;
+  animation-delay: 1.5s;
 }
 
 @keyframes animateProfileImage{

@@ -3,6 +3,7 @@ import { faEllipsisH, faUserFriends, faCheckSquare } from '@fortawesome/free-sol
 import { Course } from '../course';
 import { ToggleFooterService } from '../services/toggle-footer.service';
 import { of } from 'rxjs';
+import { CardCategoryComponent } from './card-category/card-category.component';
 
 @Component({
   selector: 'app-card',
@@ -21,13 +22,14 @@ export class CardComponent implements OnInit {
 
   @ViewChild('card') card !: ElementRef<HTMLDivElement>;
 
-  @ViewChild('category') categoryElement !: ElementRef<any>;
+  @ViewChild('category') categoryElement !: CardCategoryComponent;
 
   constructor(private render: Renderer2, private toggleFooterService: ToggleFooterService) { }
 
   ngOnInit() {
 
     this.addEffectIfisAllSelected()
+
   }
 
   addEffectIfisAllSelected() {
@@ -38,10 +40,12 @@ export class CardComponent implements OnInit {
           this.cardSelected = isAllSelect
           if (isAllSelect) {
             this.addSelectedEffect()
+            this.categoryElement.addCategoryEffect()
           }
           else {
 
             this.removeSelectedEffect()
+            this.categoryElement.removeCategoryEffect()
           }
         }
       )
@@ -55,11 +59,13 @@ export class CardComponent implements OnInit {
 
       this.toggleFooterService.selectCourse(this.course);
       this.addSelectedEffect();
+      this.categoryElement.addCategoryEffect()
 
     } else {
 
       this.toggleFooterService.removeSelection();
       this.removeSelectedEffect()
+      this.categoryElement.removeCategoryEffect()
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2, ViewChildren, AfterViewInit } from '@angular/core';
+import { Component,  ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
 import { trigger, transition, style, query, stagger, animate } from '@angular/animations';
 
 @Component({
@@ -13,7 +13,7 @@ import { trigger, transition, style, query, stagger, animate } from '@angular/an
         query(':enter', [
           style({ opacity: 0, transform: 'translateX(40px)' }),
           stagger(80, [
-            animate('1.2s .5s ease', style({ opacity: 1, transform: 'translateX(0px)' }))
+            animate('1.2s .8s ease', style({ opacity: 1, transform: 'translateX(0px)' }))
           ])
         ])
       ])

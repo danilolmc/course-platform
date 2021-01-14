@@ -3,6 +3,7 @@ span{
   font-size: .7rem;
   font-weight: bolder;
   border-radius: 3px;
+  transition: .7s ease;
 }
 
 .management,
@@ -15,9 +16,19 @@ span{
   background: #c7eeff;
 }
 
+.management-focused{
+  color: #fff;
+  background: #00abff;
+}
+
 .design{
   color: #828082;
   background: #f3f2f3;
+}
+
+.design-focused{
+  color: #fff;
+  background: #010001;
 }
 
 .languages{
@@ -25,8 +36,18 @@ span{
   background: #fff7e6;
 }
 
+.languages-focused{
+  color: #fff;
+  background: #ffb500;
+}
+
 .client-work{
   color: #93a0d7;
   background: #eaeeff;
+}
+
+.client-work-focused{
+  color: #fff;
+  background: #3663ff;
 }
 
